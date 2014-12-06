@@ -1,21 +1,17 @@
-var koa = require('koa')
-    , router = require('koa-router')
-    , app = koa()
-    ;
+var koa = require('koa'),
+	router = require('koa-router'),
+	views = require('koa-views'),
+	staticServer = require('koa-static'),
+	app = koa(),
+	PORT = 3000;
+ 
+app.use(views('./views', 'jade')); 
 
+//app.use(staticServer(__dirname + '/res')); 
 app.use(router(app));
-
-app.get('/test', function *(next){
-    console.log('test1');
-    yield next;
-}, function *(next){
-    console.log('test2');
-    yield next;
-});
+app.listen(PORT);
 
 app.get('/', function *(next){
-    console.log('root path');
-    yield next;
+	this.body = 'hello koa';
 });
 
-app.listen(3000);

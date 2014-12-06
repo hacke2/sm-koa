@@ -3,7 +3,6 @@ module.exports = function(grunt){
     watch:{
       js: {
         files:['js/**', '*.js'],
-        tasks:['jshint'],
         options:{
           livereload: true
         }
