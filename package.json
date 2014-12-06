@@ -1,0 +1,21 @@
+{
+  "name": "demo-koa",
+  "version": "1.0.0",
+  "description": "koa demo",
+  "main": "app.js",
+  "dependencies": {
+    "koa": "^0.13.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-concurrent": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.3.0",
+    "koa-router": "^3.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wangxinglong",
+  "license": "ISC"
+}
