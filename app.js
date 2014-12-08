@@ -1,16 +1,16 @@
 var koa = require('koa'),
-	router = require('koa-router'),
-	views = require('co-views'),
-	data = require('./data/index')
-	render = views(__dirname + '/views', {
-	  map: { html: 'ejs' }
-	}),
-	staticServer = require('koa-static'),
+	path = require('path'),
+	indexRouder = require('./routers/index'),
+	staticCache = require('koa-static-cache'),
 	app = koa(),
 	PORT = 3000;
- 
-app.use(router(app));
-//app.use(staticServer(__dirname + '/res')); 
+
+app.use(staticCache(path.join(__dirname, '/static/'), {
+        maxAge: 365 * 24 * 60 * 60
+}))
+console.log(path.join(__dirname, '/static/'));
+app.use(indexRouder.middleware());
+
 app.listen(PORT);
 
 
@@ -18,11 +18,4 @@ app.listen(PORT);
 
 
 
-app.get('/', function *(){
-	console.log(data)
-	this.body = yield render('index', {
-		title : '首页',
-		list : data
-	});
-});
 

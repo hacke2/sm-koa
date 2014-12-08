@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<title>koa demo</title>
+		<% include ../includes/head.html %>
+		<% include ../includes/css.html %>
 	</head>
 	<body>
 		<h1><%=title%></h1>
+
 		<h2>列表<h2>
 		<ul>
 			<%for(var i = 0, len = list.length; i < len; i++) {%>
 			<li><a href="<%=list[i].url%>"><%=list[i].title%></a></li>
 			<%}%>
 		</ul>
+		<% include ../includes/foot.html %>
+		<% include ../includes/script.html %>
 	</body>
 </html>
-	
+<html>
+    
