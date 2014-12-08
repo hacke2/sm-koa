@@ -5,10 +5,10 @@ var koa = require('koa'),
 	app = koa(),
 	PORT = 3000;
 
-app.use(staticCache(path.join(__dirname, '/static/'), {
+app.use(staticCache(path.join(__dirname, '/static'), {
         maxAge: 365 * 24 * 60 * 60
 }))
-console.log(path.join(__dirname, '/static/'));
+
 app.use(indexRouder.middleware());
 
 app.listen(PORT);
